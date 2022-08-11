@@ -35,9 +35,6 @@ public class OnlineBanking {
     }
     public float  transferFunds(int accountBalance,int transferAmount){
 
-        Random obj = new Random();
-        System.out.println("12 digit transfer account number ");
-        System.out.println(obj.nextLong(100000000000l,999999999999l));
         float availableBalance = 0.0f;
         if(transferAmount > accountBalance){
             availableBalance = accountBalance - transferAmount;
