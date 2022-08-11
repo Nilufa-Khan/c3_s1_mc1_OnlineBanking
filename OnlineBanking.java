@@ -2,7 +2,7 @@ import java.util.Random;
 
 public class OnlineBanking {
     String accountHolderName;
-
+    long accountNumber;
     int accountBalance;
     String accountStatus;
 
@@ -15,7 +15,7 @@ public class OnlineBanking {
 
         public float  withdrawCash(int accountBalance,int withdrawlAmount){
             float availableBalance = 0.0f;
-            if(withdrawlAmount > accountBalance) {
+            if(withdrawlAmount < accountBalance) {
               availableBalance = accountBalance - withdrawlAmount;
 
             }
@@ -28,7 +28,7 @@ public class OnlineBanking {
     }
     public float depositCash(int accountBalance,int depositAmount){
             float availableBalance = 0.0f;
-            if(depositAmount > accountBalance){
+            if(depositAmount < accountBalance){
                 availableBalance = accountBalance -depositAmount;
             }
             return availableBalance;
@@ -36,7 +36,7 @@ public class OnlineBanking {
     public float  transferFunds(int accountBalance,int transferAmount){
 
         float availableBalance = 0.0f;
-        if(transferAmount > accountBalance){
+        if(transferAmount < accountBalance){
             availableBalance = accountBalance - transferAmount;
         }
         return  availableBalance;
