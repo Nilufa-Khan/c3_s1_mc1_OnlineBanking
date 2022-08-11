@@ -1,63 +1,50 @@
 import java.util.Random;
-import java.util.Scanner;
+
 public class OnlineBanking {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Random obj = new Random();
-        System.out.println("12 digit account number ");
-        System.out.println(obj.nextLong(100000000000l,999999999999l));
-        System.out.println("Enter account holder name");
-        String accountHolderName = sc.nextLine();
-        System.out.println("Account balance");
-        int accountBalance = sc.nextInt();
-        System.out.println("Withdrawl amount");
-        int cashWithdraw = sc.nextInt();
-        System.out.println("Deposit amount");
-        int depositAmount = sc.nextInt();
-        System.out.println("transferred amount");
-        int transferredAmount = sc.nextInt();
+    String accountHolderName;
+
+    int accountBalance;
+    String accountStatus;
 
 
-
-        int after_withDrawl = accountBalance - cashWithdraw;
-        int dep = after_withDrawl+ depositAmount;
-        int trans = dep - transferredAmount;
-        int avb = accountBalance - cashWithdraw;
-
-            OnlineBanking ob = new OnlineBanking();
-            ob.withdrawCash(cashWithdraw);
-
-            ob.depositCash(dep);
-            ob.transferFunds(trans);
-            ob.savingsAccount(transferredAmount,depositAmount);
-            ob.checkBalance(trans);
-
-    }
-    public void withdrawCash(int balance){
-        System.out.println("Withdrawl amount "+balance);
-
-    }
-    public void checkBalance(int available_balance) {
-        if (available_balance < 100) {
-            System.out.println("Account status - frozen");
-        } else {
-            System.out.println("Available balance " + available_balance);
+        public void autoGenerateNo() {
+            Random obj = new Random();
+            System.out.println("12 digit account number ");
+            System.out.println(obj.nextLong(100000000000l,999999999999l));
         }
-    }
-    public void depositCash(int cash){
 
+        public float  withdrawCash(int accountBalance,int withdrawlAmount){
+            float availableBalance = 0.0f;
+            if(withdrawlAmount > accountBalance) {
+              availableBalance = accountBalance - withdrawlAmount;
 
-        System.out.println("After cash deposit "+ cash);
+            }
+            return availableBalance;
     }
-    public void  transferFunds(int cash){
+    public void checkBalance(int accountBalance) {
 
-        System.out.println("After fund transfer "+ cash);
-    }
-    public void savingsAccount(int debit_Cash, int credit_Cash){
-        System.out.println("Debited cash "+debit_Cash);
-        System.out.println("Credited cash "+credit_Cash);
+            System.out.println("Available balance " + accountBalance);
 
     }
+    public float depositCash(int accountBalance,int depositAmount){
+            float availableBalance = 0.0f;
+            if(depositAmount > accountBalance){
+                availableBalance = accountBalance -depositAmount;
+            }
+            return availableBalance;
+    }
+    public float  transferFunds(int accountBalance,int transferAmount){
+
+        Random obj = new Random();
+        System.out.println("12 digit transfer account number ");
+        System.out.println(obj.nextLong(100000000000l,999999999999l));
+        float availableBalance = 0.0f;
+        if(transferAmount > accountBalance){
+            availableBalance = accountBalance - transferAmount;
+        }
+        return  availableBalance;
+    }
+
 
 
 }
