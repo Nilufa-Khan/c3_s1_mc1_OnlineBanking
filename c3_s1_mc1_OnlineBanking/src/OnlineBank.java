@@ -11,7 +11,7 @@ public class OnlineBank {
         public void autoGenerateNo() {
             Random obj = new Random();
             System.out.println("12 digit account number ");
-            System.out.println(obj.nextLong(100000000000l,999999999999l));
+            System.out.println(obj.nextLong(100000000000L,999999999999L));
         }
 
         public float  withdrawCash(int accountBalance,int withdrawlAmount){
