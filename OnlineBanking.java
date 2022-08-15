@@ -28,9 +28,9 @@ public class OnlineBanking {
     }
     public float depositCash(int accountBalance,int depositAmount){
             float availableBalance = 0.0f;
-            if(depositAmount < accountBalance){
-                availableBalance = accountBalance -depositAmount;
-            }
+           
+                availableBalance = accountBalance + depositAmount;
+          
             return availableBalance;
     }
     public float  transferFunds(int accountBalance,int transferAmount){
