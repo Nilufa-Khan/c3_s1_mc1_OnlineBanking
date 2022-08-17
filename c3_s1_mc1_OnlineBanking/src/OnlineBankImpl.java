@@ -6,9 +6,10 @@ public class OnlineBankImpl {
         obj.accountStatus = "Active";
         obj.autoGenerateNo();
         System.out.println("Check balance = "+obj.accountBalance);
-        System.out.println("Withdrawl cash = "+obj.withdrawCash(obj.accountBalance,500));
-        System.out.println("Deposit cash  = " + obj.depositCash(obj.accountBalance,2000));
-        System.out.println("Transferred amount = " + obj.transferFunds(obj.accountBalance,3000));
+        float res = obj.depositCash(obj.accountBalance,2000);
+        System.out.println("After Deposit cash  = " + res );
+        float res2 = obj.transferFunds(res,3000);
+        System.out.println("After Transferred amount = " +res2 );
 
     }
 }

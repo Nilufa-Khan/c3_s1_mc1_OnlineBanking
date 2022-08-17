@@ -4,7 +4,7 @@ public class OnlineBank {
 
         String accountHolderName;
         long accountNumber;
-        int accountBalance;
+        float accountBalance;
         String accountStatus;
 
 
@@ -14,27 +14,21 @@ public class OnlineBank {
             System.out.println(obj.nextLong(100000000000L,999999999999L));
         }
 
-        public float  withdrawCash(int accountBalance,int withdrawlAmount){
-            float availableBalance = 0.0f;
-            if(withdrawlAmount < accountBalance) {
-                availableBalance = accountBalance - withdrawlAmount;
 
-            }
-            return availableBalance;
-        }
-        public void checkBalance(int accountBalance) {
+
+        public void checkBalance(float accountBalance) {
 
             System.out.println("Available balance " + accountBalance);
 
         }
-        public float depositCash(int accountBalance,int depositAmount){
+        public float depositCash(float accountBalance,float depositAmount){
             float availableBalance = 0.0f;
 
                 availableBalance = accountBalance + depositAmount;
 
             return availableBalance;
         }
-        public float  transferFunds(int accountBalance,int transferAmount){
+        public float  transferFunds(float accountBalance,float transferAmount){
 
             float availableBalance = 0.0f;
             if(transferAmount < accountBalance){
